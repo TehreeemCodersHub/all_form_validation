@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- add things  -->
+
+    
+    
+    <title>Login page</title>
+    
+</head>
+<body> 
+      
+    
+
+ <section  >
+    <!-- Start of form -->
+    <div id="register-container" class="flex  items-center justify-center">
+        
+        <div class="w-full max-w-xs">
+          
+            <form class="bg-white shadow-md rounded  px-8 pt-6 pb-8 mb-4" id='forms' method="post" name ="myform" onsubmit="return formValidation()" >
+            
+                 <img src="template/logo.png" class="logo pl-12 pb-4" />
+            
+
+
+
+                <!-- 2nd input field -->
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                Email
+              </label>
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" name = 'email' type="text" placeholder="Email">
+              <span></span>
+              
+            </div>
+
+            <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                Password
+              </label>
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="******************">
+              <span class="text-red-500"></span>
+            </div>
+
+
+            <div class="flex items-center justify-between">
+              
+              <button  type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-24 ml-2 rounded focus:outline-none focus:shadow-outline" type="button">
+                Sign In
+              </button>
+            
+            </div>
+
+            <div class="flex items-center justify-between mt-4">
+              <p class="inline-block align-baseline text-sm text-blue-500">Already have an account? 
+                
+                <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 " href="sign-up.html">
+                  Sign in
+                </a>
+
+
+              </p>
+           
+            </div>
+
+          </form>
+
+
+
+          <p class="text-center text-gray-500 text-xs">
+            &copy;2020 Banking App by Duomly. All rights reserved.
+          </p>
+        </div>
+    
+    </div>
+    
+
+
+</section>
+
+
+
+
+
+<script src="index.js"></script>
+
+</body>
+</html>
+

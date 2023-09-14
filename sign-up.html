@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sign up page</title>    
+</head>
+<body class='bg-slate-400'> 
+      
+    
+<!-- check for help -->
+
+<!-- https://blog.logrocket.com/localstorage-javascript-complete-guide/ -->
+
+
+<section  >
+
+<div class= 'container mx-auto flex p-5 border'>
+
+    <!-- here adding image section -->
+    <div class="w-1/2 border">
+        
+    </div>
+
+<div class="w-1/2 border bg-white p-4">
+    
+    <h1>Register</h1>
+    <p>Create your account its free to Create</p>
+
+    
+        <form class="mt-5 space-y-3  " id='sign-up-form' method="post" onsubmit="return signUpValidation()" >
+
+            <div class="flex space-x-3 ">
+                <input placeholder="Enter Name " class="border  w-full p-2" id="fname" />
+                <input placeholder="Last Name" class="border w-full p-2"  id="lname"  />
+            </div>
+            
+            <input placeholder="Enter Email " class="border p-2 w-full px-2" id="email"  />
+            <input placeholder="Password " class="border p-2 w-full px-2"  id="password" />
+            <input placeholder="Confirm Password " class="border p-2 w-full px-2" id=" cpassword "  />
+            <div class="flex space-x-2 ">
+           
+            <input type="checkbox" class="" height="2" width="2" />
+            <p> I accept terms of use & privacy policy services </p>
+            
+            <a class="text-blue-700 pl-10" href="index.html" >login? 
+        
+        </div>
+              
+            <div class="pt-5">
+
+                <button class="w-full text-white bg-blue-700 p-4 " type="submit"> Register</button>
+            </div>
+              
+        </form>
+
+
+    
+    
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+<script src="index2.js"></script>
+
+</body>
+</html>
+
