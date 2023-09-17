@@ -7,4 +7,28 @@
 .error-color {
     
     color: red;
+}
+.image {
+    background-image: url('template/header-bg.jpg');
+   
+    width: 100%;
+    position: relative; /* Added this to position the ::before pseudo-element correctly */
   }
+  
+  .image::before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute; /* Added this to position the overlay */
+    top: 0;
+    left: 0;
+    z-index: 0;
+  
+  }
+  .image > * {
+    z-index: 10;
+    position: relative;
+    color: white;
+  }
+  
