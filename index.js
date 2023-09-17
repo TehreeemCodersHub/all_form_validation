@@ -56,7 +56,8 @@ class Validator {
          }
       
         } else {
-            alert('you are not register signup first')         
+            alert('you are not register signup first')
+            this.check = false;        
         }
 
         if(this.check) {
