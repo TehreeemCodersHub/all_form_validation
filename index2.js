@@ -11,17 +11,10 @@ signup_form.addEventListener('submit', (e) => {
         console.log('signUpValidation called');
         
         e.preventDefault();   
-        
+        signUpValidation();
         
 
 });
-
-
-
-
-
-signUpValidation();
-   
 
 function showToast() {
     
