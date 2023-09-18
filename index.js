@@ -23,7 +23,7 @@ class Validator {
       this.check = true;
 
       if (this.emailField.value === '' || !this.emailField.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-          this.setError(this.emailError, 'Enter valid email.');
+          this.setError(this.emailError, 'Enter email.');
           this.check = false;
       } else {
           this.clearError(this.emailError);
