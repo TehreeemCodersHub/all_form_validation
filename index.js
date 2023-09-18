@@ -1,5 +1,6 @@
 let get_form = document.getElementById('forms');
-
+let button = get_form.button;
+console.log(button);
 
 get_form.addEventListener('submit', (e) => { 
     console.log('signUpValidation called');
@@ -18,7 +19,7 @@ class Validator {
 
   }
 
-  validateFields() {
+ async validateFields() {
       this.check = true;
 
       if (this.emailField.value === '' || !this.emailField.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
@@ -37,40 +38,46 @@ class Validator {
 
 
       if(this.check) {
-        //  alert("You have successfully signed up!");
+        
 
-        const get_local_data = JSON.parse(localStorage.getItem('userData'));
+        const get_local_data = await JSON.parse(localStorage.getItem('userData'));
         
         if(get_local_data) {
           
           const input_email = this.emailField.value;
           const input_password = this.passwordField.value;
-          const get_user = get_local_data.find(user=> input_email === user.user_email && input_password === user.user_password)
+          const get_user = await get_local_data.find(user=> input_email === user.user_email && input_password === user.user_password)
 
-          if(get_user) {
-            this.check = true;
-          }else {
-            this.setError(this.emailError, 'Enter valid email');
-            this.setError(this.passwordError, 'invalid password');
-            this.check = false;
-         }
-      
+            if(get_user) {
+              this.check = true;
+            }else {
+              this.setError(this.emailError, 'Enter valid email');
+              this.setError(this.passwordError, 'invalid password');
+              this.check = false;
+            }
+        
         } else {
-            alert('you are not register signup first')
-            this.check = false;        
+
+          alert('you are not register signup first');
+            this.check = false;    
+            return this.check;
+                
         }
+
+
+
 
         if(this.check) {
          
           setTimeout(()=> {
             this.get_form.reset();
-           },3000);
+           },1000);
            
           let toastSuccess = document.getElementById('toast-success');
           toastSuccess.style.display = 'block';
           setTimeout(() => {
               toastSuccess.style.display = 'none';
-          }, 4000);
+          }, 2000);
 
           // const create_anchor = document.createElement('a')
           // create_anchor.setAttribute('href',"submit.html");
