@@ -1,11 +1,30 @@
 let get_form = document.getElementById('forms');
-let button = get_form.button;
-console.log(button);
 
-get_form.addEventListener('submit', (e) => { 
-    console.log('signUpValidation called');
-    e.preventDefault();     
+
+console.log(get_form.action);
+
+
+console.log(document.forms.action);
+console.log(get_form);
+
+get_form.addEventListener('submit', async(e) => { 
+    
+  console.log('signUpValidation called');
+    e.preventDefault(); 
+    const validation_result = await formValidation();
+    if(validation_result) {
+    get_form.submit();
+   window.location("action.html");
+        // window.location= "action.html";
+      //  window.location = "/submit.html"
+      console.log("action.html");
+    } 
 });
+
+
+
+console.log(get_form.action);
+
 
 class Validator {
   constructor(emailField, passwordField, get_form) {
@@ -20,6 +39,7 @@ class Validator {
   }
 
  async validateFields() {
+      
       this.check = true;
 
       if (this.emailField.value === '' || !this.emailField.value.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
@@ -35,17 +55,15 @@ class Validator {
       } else {
           this.clearError(this.passwordError);
       }
-
-
       if(this.check) {
         
-
         const get_local_data = await JSON.parse(localStorage.getItem('userData'));
         
         if(get_local_data) {
           
           const input_email = this.emailField.value;
           const input_password = this.passwordField.value;
+
           const get_user = await get_local_data.find(user=> input_email === user.user_email && input_password === user.user_password)
 
             if(get_user) {
@@ -63,10 +81,6 @@ class Validator {
             return this.check;
                 
         }
-
-
-
-
         if(this.check) {
          
           setTimeout(()=> {
@@ -74,14 +88,14 @@ class Validator {
            },1000);
            
           let toastSuccess = document.getElementById('toast-success');
+          
           toastSuccess.style.display = 'block';
           setTimeout(() => {
               toastSuccess.style.display = 'none';
           }, 2000);
 
-          // const create_anchor = document.createElement('a')
-          // create_anchor.setAttribute('href',"submit.html");
-         
+          
+
         }
           
          return this.check;

@@ -2,10 +2,26 @@ let email_reg = /^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/;
 let name_reg = /^[a-zA-Z]*$/;
 signup_form = document.getElementById('sign-up-form');
 
+let data = document.getElementById('fname').value;
+let fn_error = document.getElementById('fname').nextElementSibling;
+
+
 signup_form.addEventListener('submit', (e) => { 
+
         console.log('signUpValidation called');
-        e.preventDefault();     
+        
+        e.preventDefault();   
+        
+        
+
 });
+
+
+
+
+
+signUpValidation();
+   
 
 function showToast() {
     
@@ -20,7 +36,7 @@ function showToast() {
     }, 4000);
 }
 
-signUpValidation();
+// signUpValidation();
 
 function signUpValidation() {
     
@@ -49,11 +65,11 @@ function signUpValidation() {
         passwordError.innerHTML = '';
         copasswordError.innerHTML = '';
     }
+    clearError();
 
     window.addEventListener("load", () => {
         clearError();
     }); 
-    clearError();
 
     if (fname === '' || !name_reg.test(fname)) {
         fnameError.innerHTML = 'Enter a valid first name';
@@ -70,11 +86,16 @@ function signUpValidation() {
         validate = false;
     }
 
+    if(password.length <= 6) {
+        passwordError.innerHTML = "Password must be at least six characters";
+        validate = false;
+    }
+
     if (password === '' ) {
         passwordError.innerHTML = 'Enter a password';
         validate = false;
     }
-
+    
     if (copassword === '') {
         copasswordError.innerHTML = 'Confirm your password';
         validate = false;
@@ -96,17 +117,20 @@ function signUpValidation() {
             
             get_obj = JSON.parse(localStorage.getItem('userData'));
             
-            for (let record in get_obj ) {
-                if(email === get_obj[record].user_email) {
-                    emailError.innerHTML='Email already exist';
-                    validate = false;
-                    break;
-                
-                }            
-            }   
+                for (let record in get_obj ) {
+                    
+                    if(email === get_obj[record].user_email) {
+                        emailError.innerHTML='Email already exist';
+                        validate = false;
+                        break;
+                        
+                    }        
+                } 
+
             if(validate) {
                 get_obj.push(obj_one);
                 localStorage.setItem('userData', JSON.stringify(get_obj));
+                clearError();
                 showToast();
             }
 
@@ -115,8 +139,9 @@ function signUpValidation() {
             localStorage.setItem('userData', JSON.stringify(get_obj));
             showToast();
         }
-        
+   
         return validate;
+        clearError();
     }
 }
 
